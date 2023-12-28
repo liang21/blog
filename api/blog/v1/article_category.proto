@@ -1,0 +1,65 @@
+syntax = "proto3";
+package blog.api.blog.v1;
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+option go_package = "blog/api/blog/v1";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Blog API";
+    version: "1.0.0";
+  }
+};
+
+message ArticleCategory {
+  int64 id = 1;
+  int64 article_id = 2;
+  int64 category_id = 3;
+  google.protobuf.Timestamp create_at = 4;
+  google.protobuf.Timestamp update_at = 5;
+}
+
+message CreateArticleCategoryRequest {
+  int64 article_id = 1;
+  int64 category_id = 2;
+}
+
+message UpdateArticleCategoryRequest {
+  int64 id = 1;
+  int64 article_id = 2;
+  int64 category_id = 3;
+}
+
+message DeleteArticleCategoryRequest {
+  int64 id = 1;
+}
+
+message GetArticleCategoryRequest {
+  int64 id = 1;
+}
+
+service ArticleCategoryService {
+  rpc CreateArticleCategory(CreateArticleCategoryRequest) returns (ArticleCategory) {
+    option (google.api.http) = {
+      post: "/blog/api/v1/article_categories";
+      body: "*";
+    };
+  }
+  rpc UpdateArticleCategory(UpdateArticleCategoryRequest) returns (ArticleCategory) {
+    option (google.api.http) = {
+      put: "/blog/api/v1/article_categories/{id}";
+      body: "*";
+    };
+  }
+  rpc DeleteArticleCategory(DeleteArticleCategoryRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/blog/api/v1/article_categories/{id}";
+    };
+  }
+  rpc GetArticleCategory(GetArticleCategoryRequest) returns (ArticleCategory) {
+    option (google.api.http) = {
+      get: "/blog/api/v1/article_categories/{id}";
+    };
+  }
+}

@@ -1,0 +1,86 @@
+syntax = "proto3";
+package blog.api.blog.v1;
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "validate/validate.proto";
+option go_package = "blog/api/blog/v1";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Blog API";
+    version: "1.0.0";
+  }
+};
+
+message Category {
+  int64 id = 1;
+  string name = 2 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 64];
+  string desc = 3 [(validate.rules).string.max_len = 256];
+  google.protobuf.Timestamp create_at = 4;
+  google.protobuf.Timestamp update_at = 5;
+}
+
+message CreateCategoryRequest {
+  string name = 1 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 64];
+  string desc = 2 [(validate.rules).string.max_len = 256];
+}
+
+message CreateCategoryResponse {
+  Category category = 1;
+}
+
+message GetCategoryRequest {
+  int64 id = 1;
+}
+
+message UpdateCategoryRequest {
+  int64 id = 1;
+  string name = 2 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 64];
+  string desc = 3 [(validate.rules).string.max_len = 256];
+}
+
+message DeleteCategoryRequest {
+  int64 id = 1;
+}
+
+message ListCategoryRequest {
+  string filter = 1;
+  int64 page_size = 2;
+  string page_token = 3;
+}
+
+message ListCategoryResponse {
+  repeated Category categories = 1;
+  int64 total = 2;
+}
+
+service CategoryService {
+  rpc CreateCategory(CreateCategoryRequest) returns (CreateCategoryResponse) {
+    option (google.api.http) = {
+      post: "/blog/api/v1/categories";
+      body: "*";
+    };
+  }
+  rpc GetCategory(GetCategoryRequest) returns (Category) {
+    option (google.api.http) = {
+      get: "/blog/api/v1/categories/{id}";
+    };
+  }
+  rpc UpdateCategory(UpdateCategoryRequest) returns (Category) {
+    option (google.api.http) = {
+      put: "/blog/api/v1/categories/{id}";
+      body: "*";
+    };
+  }
+  rpc DeleteCategory(DeleteCategoryRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/blog/api/v1/categories/{id}";
+    };
+  }
+  rpc ListCategory(ListCategoryRequest) returns (ListCategoryResponse) {
+    option (google.api.http) = {
+      get: "/blog/api/v1/categories";
+    };
+  }
+}

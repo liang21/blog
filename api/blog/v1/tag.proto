@@ -1,0 +1,82 @@
+syntax = "proto3";
+package blog.api.blog.v1;
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "validate/validate.proto";
+option go_package = "blog/api/blog/v1";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Blog API";
+    version: "1.0.0";
+  }
+};
+
+message Tag{
+  int64 id = 1;
+  string name = 2 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 64];
+  string desc = 3 [(validate.rules).string.max_len = 256];
+  google.protobuf.Timestamp create_at = 4;
+  google.protobuf.Timestamp update_at = 5;
+}
+
+message CreateTagRequest{
+  string name = 1 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 64];
+  string desc = 2 [(validate.rules).string.max_len = 256];
+}
+
+message GetTagRequest{
+  int64 id = 1;
+}
+
+message UpdateTagRequest{
+  int64 id = 1;
+  string name = 2 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 64];
+  string desc = 3 [(validate.rules).string.max_len = 256];
+}
+
+message DeleteTagRequest{
+  int64 id = 1;
+}
+
+message ListTagRequest{
+  string filter = 1;
+  int64 page_size = 2;
+  string page_token = 3;
+}
+
+message ListTagResponse{
+  repeated Tag tags = 1;
+  int64 total = 2;
+}
+
+service TagService{
+  rpc CreateTag(CreateTagRequest) returns (Tag) {
+    option (google.api.http) = {
+      post: "/blog/api/v1/tags";
+      body: "*";
+    };
+  }
+  rpc GetTag(GetTagRequest) returns (Tag) {
+    option (google.api.http) = {
+      get: "/blog/api/v1/tags/{id}";
+    };
+  }
+  rpc UpdateTag(UpdateTagRequest) returns (Tag) {
+    option (google.api.http) = {
+      put: "/blog/api/v1/tags/{id}";
+      body: "*";
+    };
+  }
+  rpc DeleteTag(DeleteTagRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/blog/api/v1/tags/{id}";
+    };
+  }
+  rpc ListTag(ListTagRequest) returns (ListTagResponse) {
+    option (google.api.http) = {
+      get: "/blog/api/v1/tags";
+    };
+  }
+}

@@ -1,0 +1,95 @@
+syntax = "proto3";
+package blog.api.blog.v1;
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "validate/validate.proto";
+option go_package = "blog/api/blog/v1";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Blog API";
+    version: "1.0.0";
+  }
+};
+
+message Article {
+  int64 id = 1;
+  string title = 2 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 128];
+  string desc = 3 [(validate.rules).string.max_len = 256];
+  string content = 4;
+  string url = 5 [(validate.rules).string.max_len = 64];
+  string state = 6;
+  string user_id = 7;
+  google.protobuf.Timestamp create_at = 8;
+  google.protobuf.Timestamp update_at = 9;
+}
+
+message CreateArticleRequest {
+  string title = 1 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 128];
+  string desc = 2 [(validate.rules).string.max_len = 256];
+  string content = 3;
+  string url = 4 [(validate.rules).string.max_len = 64];
+  string state = 5;
+  string user_id = 6;
+}
+
+message GetArticleRequest {
+  int64 id = 1;
+}
+
+message UpdateArticleRequest {
+  int64 id = 1;
+  string title = 2 [(validate.rules).string.min_len = 1, (validate.rules).string.max_len = 128];
+  string desc = 3 [(validate.rules).string.max_len = 256];
+  string content = 4;
+  string url = 5 [(validate.rules).string.max_len = 64];
+  string state = 6;
+  string user_id = 7;
+}
+
+
+message DeleteArticleRequest {
+  int64 id = 1;
+}
+
+message ListArticleRequest {
+  string filter = 1;
+  int64 page_size = 2;
+  string page_token = 3;
+}
+
+message ListArticleResponse {
+  repeated Article articles = 1;
+  int64 total = 2;
+}
+
+service ArticleService{
+  rpc CreateArticle(CreateArticleRequest) returns (Article) {
+    option (google.api.http) = {
+      post: "/blog/api/v1/articles"
+      body: "*"
+    };
+  }
+  rpc GetArticle(GetArticleRequest) returns (Article) {
+    option (google.api.http) = {
+      get: "/blog/api/v1/articles/{id}"
+    };
+  }
+  rpc UpdateArticle(UpdateArticleRequest) returns (Article) {
+    option (google.api.http) = {
+      put: "/blog/api/v1/articles/{id}"
+      body: "*"
+    };
+  }
+  rpc DeleteArticle(DeleteArticleRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/blog/api/v1/articles/{id}"
+    };
+  }
+  rpc ListArticle(ListArticleRequest) returns (ListArticleResponse) {
+    option (google.api.http) = {
+      get: "/blog/api/v1/articles"
+    };
+  }
+}
