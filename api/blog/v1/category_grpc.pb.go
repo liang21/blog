@@ -20,11 +20,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	CategoryService_CreateCategory_FullMethodName = "/blog.api.blog.v1.CategoryService/CreateCategory"
-	CategoryService_GetCategory_FullMethodName    = "/blog.api.blog.v1.CategoryService/GetCategory"
-	CategoryService_UpdateCategory_FullMethodName = "/blog.api.blog.v1.CategoryService/UpdateCategory"
-	CategoryService_DeleteCategory_FullMethodName = "/blog.api.blog.v1.CategoryService/DeleteCategory"
-	CategoryService_ListCategory_FullMethodName   = "/blog.api.blog.v1.CategoryService/ListCategory"
+	CategoryService_CreateCategory_FullMethodName = "/api.blog.v1.CategoryService/CreateCategory"
+	CategoryService_GetCategory_FullMethodName    = "/api.blog.v1.CategoryService/GetCategory"
+	CategoryService_UpdateCategory_FullMethodName = "/api.blog.v1.CategoryService/UpdateCategory"
+	CategoryService_DeleteCategory_FullMethodName = "/api.blog.v1.CategoryService/DeleteCategory"
+	CategoryService_ListCategory_FullMethodName   = "/api.blog.v1.CategoryService/ListCategory"
 )
 
 // CategoryServiceClient is the client API for CategoryService service.
@@ -229,7 +229,7 @@ func _CategoryService_ListCategory_Handler(srv interface{}, ctx context.Context,
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CategoryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "blog.api.blog.v1.CategoryService",
+	ServiceName: "api.blog.v1.CategoryService",
 	HandlerType: (*CategoryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

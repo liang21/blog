@@ -287,7 +287,7 @@ func RegisterArticleServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/CreateArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleService/CreateArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -312,7 +312,7 @@ func RegisterArticleServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/GetArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleService/GetArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -337,7 +337,7 @@ func RegisterArticleServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/UpdateArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleService/UpdateArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -362,7 +362,7 @@ func RegisterArticleServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/DeleteArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleService/DeleteArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -387,7 +387,7 @@ func RegisterArticleServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/ListArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleService/ListArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -451,7 +451,7 @@ func RegisterArticleServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/CreateArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleService/CreateArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -473,7 +473,7 @@ func RegisterArticleServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/GetArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleService/GetArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -495,7 +495,7 @@ func RegisterArticleServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/UpdateArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleService/UpdateArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -517,7 +517,7 @@ func RegisterArticleServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/DeleteArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleService/DeleteArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -539,7 +539,7 @@ func RegisterArticleServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleService/ListArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleService/ListArticle", runtime.WithHTTPPathPattern("/blog/api/v1/articles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

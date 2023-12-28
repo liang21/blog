@@ -287,7 +287,7 @@ func RegisterCategoryServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/CreateCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.CategoryService/CreateCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -312,7 +312,7 @@ func RegisterCategoryServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/GetCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.CategoryService/GetCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -337,7 +337,7 @@ func RegisterCategoryServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/UpdateCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.CategoryService/UpdateCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -362,7 +362,7 @@ func RegisterCategoryServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/DeleteCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.CategoryService/DeleteCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -387,7 +387,7 @@ func RegisterCategoryServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/ListCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.CategoryService/ListCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -451,7 +451,7 @@ func RegisterCategoryServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/CreateCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.CategoryService/CreateCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -473,7 +473,7 @@ func RegisterCategoryServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/GetCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.CategoryService/GetCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -495,7 +495,7 @@ func RegisterCategoryServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/UpdateCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.CategoryService/UpdateCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -517,7 +517,7 @@ func RegisterCategoryServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/DeleteCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.CategoryService/DeleteCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -539,7 +539,7 @@ func RegisterCategoryServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.CategoryService/ListCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.CategoryService/ListCategory", runtime.WithHTTPPathPattern("/blog/api/v1/categories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

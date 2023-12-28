@@ -20,10 +20,10 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ArticleCategoryService_CreateArticleCategory_FullMethodName = "/blog.api.blog.v1.ArticleCategoryService/CreateArticleCategory"
-	ArticleCategoryService_UpdateArticleCategory_FullMethodName = "/blog.api.blog.v1.ArticleCategoryService/UpdateArticleCategory"
-	ArticleCategoryService_DeleteArticleCategory_FullMethodName = "/blog.api.blog.v1.ArticleCategoryService/DeleteArticleCategory"
-	ArticleCategoryService_GetArticleCategory_FullMethodName    = "/blog.api.blog.v1.ArticleCategoryService/GetArticleCategory"
+	ArticleCategoryService_CreateArticleCategory_FullMethodName = "/api.blog.v1.ArticleCategoryService/CreateArticleCategory"
+	ArticleCategoryService_UpdateArticleCategory_FullMethodName = "/api.blog.v1.ArticleCategoryService/UpdateArticleCategory"
+	ArticleCategoryService_DeleteArticleCategory_FullMethodName = "/api.blog.v1.ArticleCategoryService/DeleteArticleCategory"
+	ArticleCategoryService_GetArticleCategory_FullMethodName    = "/api.blog.v1.ArticleCategoryService/GetArticleCategory"
 )
 
 // ArticleCategoryServiceClient is the client API for ArticleCategoryService service.
@@ -197,7 +197,7 @@ func _ArticleCategoryService_GetArticleCategory_Handler(srv interface{}, ctx con
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ArticleCategoryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "blog.api.blog.v1.ArticleCategoryService",
+	ServiceName: "api.blog.v1.ArticleCategoryService",
 	HandlerType: (*ArticleCategoryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

@@ -251,7 +251,7 @@ func RegisterArticleCategoryServiceHandlerServer(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleCategoryService/CreateArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/CreateArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -276,7 +276,7 @@ func RegisterArticleCategoryServiceHandlerServer(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleCategoryService/UpdateArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/UpdateArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -301,7 +301,7 @@ func RegisterArticleCategoryServiceHandlerServer(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleCategoryService/DeleteArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/DeleteArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -326,7 +326,7 @@ func RegisterArticleCategoryServiceHandlerServer(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/blog.api.blog.v1.ArticleCategoryService/GetArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/GetArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -390,7 +390,7 @@ func RegisterArticleCategoryServiceHandlerClient(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleCategoryService/CreateArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/CreateArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -412,7 +412,7 @@ func RegisterArticleCategoryServiceHandlerClient(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleCategoryService/UpdateArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/UpdateArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -434,7 +434,7 @@ func RegisterArticleCategoryServiceHandlerClient(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleCategoryService/DeleteArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/DeleteArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -456,7 +456,7 @@ func RegisterArticleCategoryServiceHandlerClient(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/blog.api.blog.v1.ArticleCategoryService/GetArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/GetArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

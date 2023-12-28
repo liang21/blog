@@ -20,11 +20,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TagService_CreateTag_FullMethodName = "/blog.api.blog.v1.TagService/CreateTag"
-	TagService_GetTag_FullMethodName    = "/blog.api.blog.v1.TagService/GetTag"
-	TagService_UpdateTag_FullMethodName = "/blog.api.blog.v1.TagService/UpdateTag"
-	TagService_DeleteTag_FullMethodName = "/blog.api.blog.v1.TagService/DeleteTag"
-	TagService_ListTag_FullMethodName   = "/blog.api.blog.v1.TagService/ListTag"
+	TagService_CreateTag_FullMethodName = "/api.blog.v1.TagService/CreateTag"
+	TagService_GetTag_FullMethodName    = "/api.blog.v1.TagService/GetTag"
+	TagService_UpdateTag_FullMethodName = "/api.blog.v1.TagService/UpdateTag"
+	TagService_DeleteTag_FullMethodName = "/api.blog.v1.TagService/DeleteTag"
+	TagService_ListTag_FullMethodName   = "/api.blog.v1.TagService/ListTag"
 )
 
 // TagServiceClient is the client API for TagService service.
@@ -229,7 +229,7 @@ func _TagService_ListTag_Handler(srv interface{}, ctx context.Context, dec func(
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var TagService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "blog.api.blog.v1.TagService",
+	ServiceName: "api.blog.v1.TagService",
 	HandlerType: (*TagServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

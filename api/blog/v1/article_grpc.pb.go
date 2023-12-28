@@ -20,11 +20,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ArticleService_CreateArticle_FullMethodName = "/blog.api.blog.v1.ArticleService/CreateArticle"
-	ArticleService_GetArticle_FullMethodName    = "/blog.api.blog.v1.ArticleService/GetArticle"
-	ArticleService_UpdateArticle_FullMethodName = "/blog.api.blog.v1.ArticleService/UpdateArticle"
-	ArticleService_DeleteArticle_FullMethodName = "/blog.api.blog.v1.ArticleService/DeleteArticle"
-	ArticleService_ListArticle_FullMethodName   = "/blog.api.blog.v1.ArticleService/ListArticle"
+	ArticleService_CreateArticle_FullMethodName = "/api.blog.v1.ArticleService/CreateArticle"
+	ArticleService_GetArticle_FullMethodName    = "/api.blog.v1.ArticleService/GetArticle"
+	ArticleService_UpdateArticle_FullMethodName = "/api.blog.v1.ArticleService/UpdateArticle"
+	ArticleService_DeleteArticle_FullMethodName = "/api.blog.v1.ArticleService/DeleteArticle"
+	ArticleService_ListArticle_FullMethodName   = "/api.blog.v1.ArticleService/ListArticle"
 )
 
 // ArticleServiceClient is the client API for ArticleService service.
@@ -229,7 +229,7 @@ func _ArticleService_ListArticle_Handler(srv interface{}, ctx context.Context, d
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ArticleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "blog.api.blog.v1.ArticleService",
+	ServiceName: "api.blog.v1.ArticleService",
 	HandlerType: (*ArticleServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
