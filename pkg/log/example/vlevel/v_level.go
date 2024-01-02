@@ -4,10 +4,6 @@
 
 package main
 
-import (
-	"github.com/liang21/terminator/pkg/log"
-)
-
 func main() {
 	defer log.Flush()
 

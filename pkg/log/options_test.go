@@ -23,8 +23,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	"github.com/liang21/terminator/pkg/log"
 )
 
 func Test_Options_Validate(t *testing.T) {

@@ -23,8 +23,6 @@ import (
 
 	"github.com/spf13/pflag"
 	"github.com/stretchr/testify/assert"
-
-	"github.com/liang21/terminator/pkg/log"
 )
 
 func Test_WithName(t *testing.T) {

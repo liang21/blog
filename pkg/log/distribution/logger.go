@@ -24,8 +24,6 @@ import (
 
 	"github.com/sirupsen/logrus"
 	"go.uber.org/zap"
-
-	logruslogger "github.com/liang21/terminator/pkg/log/logrus"
 )
 
 // Logger is a logger which compatible to logrus/std log/prometheus.

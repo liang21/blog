@@ -4,8 +4,6 @@
 
 package main
 
-import "github.com/liang21/terminator/pkg/log"
-
 func main() {
 	log.Infof("this is a test log, message: %s", "good")
 }
