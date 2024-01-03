@@ -22,3 +22,31 @@ type CategoryRepo interface {
 	UpdateCategory(ctx context.Context, id int64, category *Category) error
 	DeleteCategory(ctx context.Context, id int64) error
 }
+
+type CategoryCase struct {
+	repo CategoryRepo
+}
+
+func NewCategoryCase(repo CategoryRepo) *CategoryCase {
+	return &CategoryCase{repo: repo}
+}
+
+func (c *CategoryCase) List(ctx context.Context) ([]*Category, error) {
+	return c.repo.ListCategory(ctx)
+}
+
+func (c *CategoryCase) Get(ctx context.Context, id int64) (*Category, error) {
+	return c.repo.GetCategory(ctx, id)
+}
+
+func (c *CategoryCase) Create(ctx context.Context, category *Category) error {
+	return c.repo.CreateCategory(ctx, category)
+}
+
+func (c *CategoryCase) Update(ctx context.Context, id int64, category *Category) error {
+	return c.repo.UpdateCategory(ctx, id, category)
+}
+
+func (c *CategoryCase) Delete(ctx context.Context, id int64) error {
+	return c.repo.DeleteCategory(ctx, id)
+}

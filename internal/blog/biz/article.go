@@ -38,3 +38,23 @@ type ArticleCase struct {
 func NewArticleCase(repo ArticleRepo) *ArticleCase {
 	return &ArticleCase{repo: repo}
 }
+
+func (a *ArticleCase) List(ctx context.Context) ([]*Article, error) {
+	return a.repo.ListArticle(ctx)
+}
+
+func (a *ArticleCase) Get(ctx context.Context, id int64) (*Article, error) {
+	return a.repo.GetArticle(ctx, id)
+}
+
+func (a *ArticleCase) Create(ctx context.Context, article *Article) error {
+	return a.repo.CreateArticle(ctx, article)
+}
+
+func (a *ArticleCase) Update(ctx context.Context, id int64, article *Article) error {
+	return a.repo.UpdateArticle(ctx, id, article)
+}
+
+func (a *ArticleCase) Delete(ctx context.Context, id int64) error {
+	return a.repo.DeleteArticle(ctx, id)
+}

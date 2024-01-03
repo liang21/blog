@@ -4,11 +4,18 @@ import (
 	"context"
 	"errors"
 	"github.com/liang21/blog/internal/blog/biz"
+	"time"
 	"xorm.io/xorm"
 )
 
 type categoryRepo struct {
 	db *xorm.Engine
+}
+
+func NewCategoryRepo(db *xorm.Engine) biz.CategoryRepo {
+	return &categoryRepo{
+		db: db,
+	}
 }
 
 func (c *categoryRepo) ListCategory(ctx context.Context) ([]*biz.Category, error) {
@@ -33,6 +40,9 @@ func (c *categoryRepo) GetCategory(ctx context.Context, id int64) (*biz.Category
 }
 
 func (c *categoryRepo) CreateCategory(ctx context.Context, category *biz.Category) error {
+	now := time.Now().Unix()
+	category.CreateAt = now
+	category.UpdateAt = now
 	result, err := c.db.Insert(category)
 	if err != nil {
 		return err
@@ -44,6 +54,7 @@ func (c *categoryRepo) CreateCategory(ctx context.Context, category *biz.Categor
 }
 
 func (c *categoryRepo) UpdateCategory(ctx context.Context, id int64, category *biz.Category) error {
+	category.UpdateAt = time.Now().Unix()
 	result, err := c.db.ID(id).Update(category)
 	if err != nil {
 		return err
@@ -63,10 +74,4 @@ func (c *categoryRepo) DeleteCategory(ctx context.Context, id int64) error {
 		return errors.New("delete failed")
 	}
 	return nil
-}
-
-func NewCategoryRepo(db *xorm.Engine) biz.CategoryRepo {
-	return &categoryRepo{
-		db: db,
-	}
 }

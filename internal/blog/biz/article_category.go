@@ -22,3 +22,31 @@ type ArticleCategoryRepo interface {
 	UpdateArticleCategory(ctx context.Context, id int64, articleCategory *ArticleCategory) error
 	DeleteArticleCategory(ctx context.Context, id int64) error
 }
+
+type ArticleCategoryCase struct {
+	repo ArticleCategoryRepo
+}
+
+func NewArticleCategoryCase(repo ArticleCategoryRepo) *ArticleCategoryCase {
+	return &ArticleCategoryCase{repo: repo}
+}
+
+func (a *ArticleCategoryCase) List(ctx context.Context) ([]*ArticleCategory, error) {
+	return a.repo.ListArticleCategory(ctx)
+}
+
+func (a *ArticleCategoryCase) Get(ctx context.Context, id int64) (*ArticleCategory, error) {
+	return a.repo.GetArticleCategory(ctx, id)
+}
+
+func (a *ArticleCategoryCase) Create(ctx context.Context, articleCategory *ArticleCategory) error {
+	return a.repo.CreateArticleCategory(ctx, articleCategory)
+}
+
+func (a *ArticleCategoryCase) Update(ctx context.Context, id int64, articleCategory *ArticleCategory) error {
+	return a.repo.UpdateArticleCategory(ctx, id, articleCategory)
+}
+
+func (a *ArticleCategoryCase) Delete(ctx context.Context, id int64) error {
+	return a.repo.DeleteArticleCategory(ctx, id)
+}

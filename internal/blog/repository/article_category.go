@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"github.com/liang21/blog/internal/blog/biz"
+	"time"
 	"xorm.io/xorm"
 )
 
@@ -33,6 +34,9 @@ func (a *acRepo) GetArticleCategory(ctx context.Context, id int64) (*biz.Article
 }
 
 func (a *acRepo) CreateArticleCategory(ctx context.Context, articleCategory *biz.ArticleCategory) error {
+	now := time.Now().Unix()
+	articleCategory.CreateAt = now
+	articleCategory.UpdateAt = now
 	result, err := a.db.Insert(articleCategory)
 	if err != nil {
 		return err
@@ -44,6 +48,7 @@ func (a *acRepo) CreateArticleCategory(ctx context.Context, articleCategory *biz
 }
 
 func (a *acRepo) UpdateArticleCategory(ctx context.Context, id int64, articleCategory *biz.ArticleCategory) error {
+	articleCategory.UpdateAt = time.Now().Unix()
 	result, err := a.db.ID(id).Update(articleCategory)
 	if err != nil {
 		return err

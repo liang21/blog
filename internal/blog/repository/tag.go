@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"github.com/liang21/blog/internal/blog/biz"
+	"time"
 	"xorm.io/xorm"
 )
 
@@ -41,6 +42,9 @@ func (t *tagRepo) GetTag(ctx context.Context, id int64) (*biz.Tag, error) {
 }
 
 func (t *tagRepo) CreateTag(ctx context.Context, tag *biz.Tag) error {
+	now := time.Now().Unix()
+	tag.CreateAt = now
+	tag.UpdateAt = now
 	result, err := t.db.Insert(tag)
 	if err != nil {
 		return err
@@ -52,6 +56,7 @@ func (t *tagRepo) CreateTag(ctx context.Context, tag *biz.Tag) error {
 }
 
 func (t *tagRepo) UpdateTag(ctx context.Context, id int64, tag *biz.Tag) error {
+	tag.UpdateAt = time.Now().Unix()
 	result, err := t.db.ID(id).Update(tag)
 	if err != nil {
 		return err
