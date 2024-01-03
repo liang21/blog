@@ -1,1 +1,4 @@
-package repository
+package service
+
+type TagService struct {
+}
