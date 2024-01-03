@@ -29,9 +29,12 @@ func (a *articleRepo) ListArticle(ctx context.Context) ([]*biz.Article, error) {
 
 func (a *articleRepo) GetArticle(ctx context.Context, id int64) (*biz.Article, error) {
 	article := &biz.Article{Id: id}
-	_, err := a.db.Get(article)
+	ok, err := a.db.Get(article)
 	if err != nil {
 		return nil, err
+	}
+	if !ok {
+		return nil, errors.New("article not found")
 	}
 	return article, nil
 }
