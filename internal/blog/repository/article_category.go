@@ -3,11 +3,11 @@ package repository
 import (
 	"context"
 	"github.com/liang21/blog/internal/blog/biz"
+	"xorm.io/xorm"
 )
 
 type acRepo struct {
-	db  *xorm.Engine
-	rdb *redis.Client
+	db *xorm.Engine
 }
 
 func (a acRepo) ListArticleCategory(ctx context.Context) ([]*biz.ArticleCategory, error) {
@@ -35,9 +35,8 @@ func (a acRepo) DeleteArticleCategory(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func NewArticleCategoryRepo(db *xorm.Engine, rdb *redis.Client) biz.ArticleCategoryRepo {
+func NewArticleCategoryRepo(db *xorm.Engine) biz.ArticleCategoryRepo {
 	return &acRepo{
-		db:  db,
-		rdb: rdb,
+		db: db,
 	}
 }

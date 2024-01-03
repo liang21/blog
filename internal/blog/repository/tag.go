@@ -3,17 +3,16 @@ package repository
 import (
 	"context"
 	"github.com/liang21/blog/internal/blog/biz"
+	"xorm.io/xorm"
 )
 
 type tagRepo struct {
-	db  *xorm.Engine
-	rdb *redis.Client
+	db *xorm.Engine
 }
 
-func NewTagRepo(db *xorm.Engine, rdb *redis.Client) biz.TagRepo {
+func NewTagRepo(db *xorm.Engine) biz.TagRepo {
 	return &tagRepo{
-		db:  db,
-		rdb: rdb,
+		db: db,
 	}
 }
 
