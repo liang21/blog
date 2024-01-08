@@ -7,8 +7,8 @@ import (
 
 type ArticleCategory struct {
 	Id         int64     `json:"id"`
-	ArticleId  string    `json:"article_id"`
-	CategoryId string    `json:"category_id"`
+	ArticleId  int64     `json:"article_id"`
+	CategoryId int64     `json:"category_id"`
 	CreateAt   time.Time `json:"create_at"`
 	UpdateAt   time.Time `json:"update_at"`
 }

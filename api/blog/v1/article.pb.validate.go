@@ -293,6 +293,8 @@ func (m *CreateArticleRequest) validate(all bool) error {
 
 	// no validation rules for UserId
 
+	// no validation rules for CategoryId
+
 	if len(errors) > 0 {
 		return CreateArticleRequestMultiError(errors)
 	}

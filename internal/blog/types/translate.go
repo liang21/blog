@@ -19,3 +19,23 @@ func ArticleToStruct(article *biz.Article) *v1.Article {
 		UpdateAt: timestamppb.New(article.UpdateAt),
 	}
 }
+
+func CategoryToStruct(category *biz.Category) *v1.Category {
+	return &v1.Category{
+		Id:       category.Id,
+		Name:     category.Name,
+		Desc:     category.Desc,
+		CreateAt: timestamppb.New(category.CreateAt),
+		UpdateAt: timestamppb.New(category.UpdateAt),
+	}
+}
+
+func TagToStruct(tag *biz.Tag) *v1.Tag {
+	return &v1.Tag{
+		Id:       tag.Id,
+		Name:     tag.Name,
+		Desc:     tag.Desc,
+		CreateAt: timestamppb.New(tag.CreateAt),
+		UpdateAt: timestamppb.New(tag.UpdateAt),
+	}
+}

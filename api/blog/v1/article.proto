@@ -32,6 +32,7 @@ message CreateArticleRequest {
   string url = 4 [(validate.rules).string.max_len = 64];
   int64 state = 5;
   int64 user_id = 6;
+  int64 category_id = 7;
 }
 
 message GetArticleRequest {
