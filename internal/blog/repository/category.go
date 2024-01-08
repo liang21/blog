@@ -40,7 +40,7 @@ func (c *categoryRepo) GetCategory(ctx context.Context, id int64) (*biz.Category
 }
 
 func (c *categoryRepo) CreateCategory(ctx context.Context, category *biz.Category) error {
-	now := time.Now().Unix()
+	now := time.Now()
 	category.CreateAt = now
 	category.UpdateAt = now
 	result, err := c.db.Insert(category)
@@ -54,7 +54,7 @@ func (c *categoryRepo) CreateCategory(ctx context.Context, category *biz.Categor
 }
 
 func (c *categoryRepo) UpdateCategory(ctx context.Context, id int64, category *biz.Category) error {
-	category.UpdateAt = time.Now().Unix()
+	category.UpdateAt = time.Now()
 	result, err := c.db.ID(id).Update(category)
 	if err != nil {
 		return err

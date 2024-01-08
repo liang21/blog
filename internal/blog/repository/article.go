@@ -40,7 +40,7 @@ func (a *articleRepo) GetArticle(ctx context.Context, id int64) (*biz.Article, e
 }
 
 func (a *articleRepo) CreateArticle(ctx context.Context, article *biz.Article) error {
-	now := time.Now().Unix()
+	now := time.Now()
 	article.CreateAt = now
 	article.UpdateAt = now
 	result, err := a.db.Insert(article)
@@ -54,7 +54,7 @@ func (a *articleRepo) CreateArticle(ctx context.Context, article *biz.Article) e
 }
 
 func (a *articleRepo) UpdateArticle(ctx context.Context, id int64, article *biz.Article) error {
-	article.UpdateAt = time.Now().Unix()
+	article.UpdateAt = time.Now()
 	result, err := a.db.ID(id).Update(article)
 	if err != nil {
 		return err

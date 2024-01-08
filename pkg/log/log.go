@@ -4,12 +4,13 @@ package log
 import (
 	"context"
 	"fmt"
-	"github.com/liang21/blog/pkg/log/klog"
 	"log"
 	"sync"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+
+	"github.com/liang21/blog/pkg/log/klog"
 )
 
 // InfoLogger represents the ability to log non-error messages, at a particular verbosity.

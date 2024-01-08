@@ -19,6 +19,7 @@
 package log_test
 
 import (
+	"github.com/liang21/blog/pkg/log"
 	"testing"
 
 	"github.com/spf13/pflag"

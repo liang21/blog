@@ -1,0 +1,15 @@
+2024-01-08 18:41:06.130	[31mFATAL[0m	load config failed!%!(EXTRA *fs.PathError=open ./configs/config.yml: The system cannot find the file specified.)
+main.main
+	D:/terminator/go/blog/cmd/blog/main.go:53
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:267
+2024-01-08 18:42:29.128	[31mFATAL[0m	load config failed!%!(EXTRA *fs.PathError=open ./configs/config.yml: The system cannot find the file specified.)
+main.main
+	D:/terminator/go/blog/cmd/blog/main.go:52
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:267
+2024-01-08 18:43:44.049	[31mFATAL[0m	load config failed!%!(EXTRA *fs.PathError=open ../configs/config.yml: The system cannot find the path specified.)
+main.main
+	D:/terminator/go/blog/cmd/blog/main.go:52
+runtime.main
+	C:/Program Files/Go/src/runtime/proc.go:267

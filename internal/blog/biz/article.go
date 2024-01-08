@@ -1,17 +1,20 @@
 package biz
 
-import "context"
+import (
+	"context"
+	"time"
+)
 
 type Article struct {
-	Id       int64  `json:"id"`
-	Title    string `json:"title"`
-	Desc     string `json:"desc"`
-	Content  string `json:"content"`
-	Url      string `json:"url"`
-	State    int    `json:"state"`
-	UserId   int64  `json:"user_id"`
-	CreateAt int64  `json:"create_at"`
-	UpdateAt int64  `json:"update_at"`
+	Id       int64     `json:"id"`
+	Title    string    `json:"title"`
+	Desc     string    `json:"desc"`
+	Content  string    `json:"content"`
+	Url      string    `json:"url"`
+	State    int       `json:"state"`
+	UserId   int64     `json:"user_id"`
+	CreateAt time.Time `json:"create_at"`
+	UpdateAt time.Time `json:"update_at"`
 }
 
 func (Article) TableName() string {

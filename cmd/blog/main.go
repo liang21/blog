@@ -30,7 +30,7 @@ import (
 )
 
 var (
-	confPath = flag.String("conf", "./configs/config.yml", "config path, eg: -conf ./configs")
+	confPath = flag.String("conf", "D:\\terminator\\go\\blog\\configs\\comfig.yml", "config path, eg: -conf ./configs")
 )
 
 func main() {
@@ -40,9 +40,9 @@ func main() {
 		Level:            "debug",
 		Format:           "console",
 		EnableColor:      true,
-		DisableCaller:    true,
-		OutputPaths:      []string{"D:\\terminator\\go\\terminator\\logs\\terminator.log", "stdout"},
-		ErrorOutputPaths: []string{"D:\\terminator\\go\\terminator\\logs\\error.log"},
+		DisableCaller:    false,
+		OutputPaths:      []string{"stdout"},
+		ErrorOutputPaths: []string{"stderr"},
 	}
 	// 初始化全局logger
 	log.Init(logOpts)
@@ -112,7 +112,7 @@ func main() {
 	router := gin.Default()
 	pprof.Register(router)
 	router.Use(GinLogger())
-	router.Group("/api").Any("/*{gateway}", gin.WrapH(mux))
+	router.Group("/blog").Any("/*{gateway}", gin.WrapH(mux))
 	if err = router.Run(bs.HTTP.Addr); err != nil {
 		panic(err)
 	}

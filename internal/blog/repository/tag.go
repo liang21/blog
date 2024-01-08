@@ -42,7 +42,7 @@ func (t *tagRepo) GetTag(ctx context.Context, id int64) (*biz.Tag, error) {
 }
 
 func (t *tagRepo) CreateTag(ctx context.Context, tag *biz.Tag) error {
-	now := time.Now().Unix()
+	now := time.Now()
 	tag.CreateAt = now
 	tag.UpdateAt = now
 	result, err := t.db.Insert(tag)
@@ -56,7 +56,7 @@ func (t *tagRepo) CreateTag(ctx context.Context, tag *biz.Tag) error {
 }
 
 func (t *tagRepo) UpdateTag(ctx context.Context, id int64, tag *biz.Tag) error {
-	tag.UpdateAt = time.Now().Unix()
+	tag.UpdateAt = time.Now()
 	result, err := t.db.ID(id).Update(tag)
 	if err != nil {
 		return err

@@ -20,6 +20,7 @@ package log_test
 
 import (
 	"fmt"
+	"github.com/liang21/blog/pkg/log"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

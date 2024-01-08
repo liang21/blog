@@ -34,7 +34,7 @@ func (a *acRepo) GetArticleCategory(ctx context.Context, id int64) (*biz.Article
 }
 
 func (a *acRepo) CreateArticleCategory(ctx context.Context, articleCategory *biz.ArticleCategory) error {
-	now := time.Now().Unix()
+	now := time.Now()
 	articleCategory.CreateAt = now
 	articleCategory.UpdateAt = now
 	result, err := a.db.Insert(articleCategory)
@@ -48,7 +48,7 @@ func (a *acRepo) CreateArticleCategory(ctx context.Context, articleCategory *biz
 }
 
 func (a *acRepo) UpdateArticleCategory(ctx context.Context, id int64, articleCategory *biz.ArticleCategory) error {
-	articleCategory.UpdateAt = time.Now().Unix()
+	articleCategory.UpdateAt = time.Now()
 	result, err := a.db.ID(id).Update(articleCategory)
 	if err != nil {
 		return err

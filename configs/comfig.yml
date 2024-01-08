@@ -10,7 +10,7 @@ data:
     port: 3306
     username: root
     password: 123456
-    database: terminator
+    database: blog
     max_idle_connections: 50
     max_open_connections: 5
     max_connection_life_time: 10s
