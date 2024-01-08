@@ -1,0 +1,32 @@
+server:
+  http:
+    addr: 0.0.0.0:8001
+  grpc:
+    addr: 0.0.0.0:9001
+data:
+  mysql:
+    driver: mysql
+    host: localhost
+    port: 3306
+    username: root
+    password: 123456
+    database: terminator
+    max_idle_connections: 50
+    max_open_connections: 5
+    max_connection_life_time: 10s
+    show_sql: true
+    log_level: 1
+  redis:
+    addr: localhost:6379
+    password: 123456
+    db: 0
+    dial_timeout: 1000000000
+    read_timeout: 400000000
+    write_timeout: 600000000
+  mongo:
+    uri: mongodb://localhost:27017
+    database: terminator
+    connect_timeout_ms: 1
+    max_pool_size: 50
+    min_pool_size: 5
+    socket_timeout_ms: 1000
