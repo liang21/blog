@@ -4,6 +4,7 @@ package log
 import (
 	"context"
 	"fmt"
+	"github.com/liang21/blog/pkg/log/klog"
 	"log"
 	"sync"
 
