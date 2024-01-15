@@ -11,7 +11,10 @@ import (
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	ac_v1 "github.com/liang21/blog/api/blog/v1"
 	article_v1 "github.com/liang21/blog/api/blog/v1"
+	category_v1 "github.com/liang21/blog/api/blog/v1"
+	tag_v1 "github.com/liang21/blog/api/blog/v1"
 	blogBiz "github.com/liang21/blog/internal/blog/biz"
 	blogRepo "github.com/liang21/blog/internal/blog/repository"
 	blogService "github.com/liang21/blog/internal/blog/service"
@@ -78,6 +81,21 @@ func main() {
 	articleCase := blogBiz.NewArticleCase(articleRepo)
 	articleService := blogService.NewArticleService(articleCase)
 	article_v1.RegisterArticleServiceServer(s, articleService)
+	// tag service
+	tagRepo := blogRepo.NewTagRepo(engine)
+	tagCase := blogBiz.NewTagCase(tagRepo)
+	tagService := blogService.NewTagService(tagCase)
+	tag_v1.RegisterTagServiceServer(s, tagService)
+	// category service
+	categoryRepo := blogRepo.NewCategoryRepo(engine)
+	categoryCase := blogBiz.NewCategoryCase(categoryRepo)
+	categoryService := blogService.NewCategoryService(categoryCase)
+	category_v1.RegisterCategoryServiceServer(s, categoryService)
+	// article category service
+	articleCategoryRepo := blogRepo.NewArticleCategoryRepo(engine)
+	articleCategoryCase := blogBiz.NewArticleCategoryCase(articleCategoryRepo)
+	articleCategoryService := blogService.NewArticleCategoryService(articleCategoryCase)
+	ac_v1.RegisterArticleCategoryServiceServer(s, articleCategoryService)
 	// 启动grpc服务
 	go func() {
 		if err := s.Serve(lis); err != nil {
@@ -106,6 +124,15 @@ func main() {
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
 	// 注册服务
 	if err := article_v1.RegisterArticleServiceHandlerFromEndpoint(context.Background(), mux, "localhost:"+rpcPort, opts); err != nil {
+		log.Fatalf("register service failed!", err)
+	}
+	if err := tag_v1.RegisterTagServiceHandlerFromEndpoint(context.Background(), mux, "localhost:"+rpcPort, opts); err != nil {
+		log.Fatalf("register service failed!", err)
+	}
+	if err := category_v1.RegisterCategoryServiceHandlerFromEndpoint(context.Background(), mux, "localhost:"+rpcPort, opts); err != nil {
+		log.Fatalf("register service failed!", err)
+	}
+	if err := ac_v1.RegisterArticleCategoryServiceHandlerFromEndpoint(context.Background(), mux, "localhost:"+rpcPort, opts); err != nil {
 		log.Fatalf("register service failed!", err)
 	}
 	gin.SetMode(gin.ReleaseMode)

@@ -9,7 +9,7 @@ import (
 )
 
 type CategoryService struct {
-	v1.UnsafeCategoryServiceServer
+	v1.UnimplementedCategoryServiceServer
 	c *biz.CategoryCase
 }
 

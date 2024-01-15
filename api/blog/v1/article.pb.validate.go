@@ -542,6 +542,8 @@ func (m *UpdateArticleRequest) validate(all bool) error {
 
 	// no validation rules for UserId
 
+	// no validation rules for CategoryId
+
 	if len(errors) > 0 {
 		return UpdateArticleRequestMultiError(errors)
 	}

@@ -47,6 +47,7 @@ message UpdateArticleRequest {
   string url = 5 [(validate.rules).string.max_len = 64];
   int64 state = 6;
   int64 user_id = 7;
+  int64 category_id = 8;
 }
 
 
