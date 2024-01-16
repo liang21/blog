@@ -39,3 +39,13 @@ func TagToStruct(tag *biz.Tag) *v1.Tag {
 		UpdateAt: timestamppb.New(tag.UpdateAt),
 	}
 }
+
+func ArticleCategoryToStruct(articleCategory *biz.ArticleCategory) *v1.ArticleCategory {
+	return &v1.ArticleCategory{
+		Id:         articleCategory.Id,
+		ArticleId:  articleCategory.ArticleId,
+		CategoryId: articleCategory.CategoryId,
+		CreateAt:   timestamppb.New(articleCategory.CreateAt),
+		UpdateAt:   timestamppb.New(articleCategory.UpdateAt),
+	}
+}

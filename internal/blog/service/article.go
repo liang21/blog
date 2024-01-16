@@ -36,10 +36,6 @@ func (a *ArticleService) CreateArticle(ctx context.Context, in *v1.CreateArticle
 	if err != nil {
 		return nil, err
 	}
-	//articleCategoryDO := &biz.ArticleCategory{
-	//	ArticleId:  articleDO.Id,
-	//	CategoryId: in.GetCategoryId(),
-	//}
 	_, err = a.ac.CreateArticleCategory(ctx, &ac_v1.CreateArticleCategoryRequest{
 		ArticleId:  articleDO.Id,
 		CategoryId: in.GetCategoryId(),
@@ -71,7 +67,7 @@ func (a *ArticleService) UpdateArticle(ctx context.Context, in *v1.UpdateArticle
 	}
 	err = a.a.Update(ctx, in.GetId(), articleD0)
 	articleCategory, err := a.ac.GetArticleCategory(ctx, &ac_v1.GetArticleCategoryRequest{
-		Id: in.GetId(),
+		ArticleId: in.GetId(),
 	})
 	if err != nil {
 		return nil, err

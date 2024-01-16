@@ -21,8 +21,8 @@ func (a *acRepo) ListArticleCategory(ctx context.Context) ([]*biz.ArticleCategor
 	return articleCategorys, nil
 }
 
-func (a *acRepo) GetArticleCategory(ctx context.Context, id int64) (*biz.ArticleCategory, error) {
-	articleCategory := &biz.ArticleCategory{Id: id}
+func (a *acRepo) GetArticleCategory(ctx context.Context, articleId int64) (*biz.ArticleCategory, error) {
+	articleCategory := &biz.ArticleCategory{CategoryId: articleId}
 	ok, err := a.db.Get(articleCategory)
 	if err != nil {
 		return nil, err

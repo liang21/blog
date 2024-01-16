@@ -542,7 +542,7 @@ func (m *GetArticleCategoryRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Id
+	// no validation rules for ArticleId
 
 	if len(errors) > 0 {
 		return GetArticleCategoryRequestMultiError(errors)

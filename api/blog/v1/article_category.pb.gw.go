@@ -180,14 +180,14 @@ func request_ArticleCategoryService_GetArticleCategory_0(ctx context.Context, ma
 		_   = err
 	)
 
-	val, ok = pathParams["id"]
+	val, ok = pathParams["article_id"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "article_id")
 	}
 
-	protoReq.Id, err = runtime.Int64(val)
+	protoReq.ArticleId, err = runtime.Int64(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "article_id", err)
 	}
 
 	msg, err := client.GetArticleCategory(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -206,14 +206,14 @@ func local_request_ArticleCategoryService_GetArticleCategory_0(ctx context.Conte
 		_   = err
 	)
 
-	val, ok = pathParams["id"]
+	val, ok = pathParams["article_id"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "id")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "article_id")
 	}
 
-	protoReq.Id, err = runtime.Int64(val)
+	protoReq.ArticleId, err = runtime.Int64(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "id", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "article_id", err)
 	}
 
 	msg, err := server.GetArticleCategory(ctx, &protoReq)
@@ -310,7 +310,7 @@ func RegisterArticleCategoryServiceHandlerServer(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/GetArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/GetArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{article_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -440,7 +440,7 @@ func RegisterArticleCategoryServiceHandlerClient(ctx context.Context, mux *runti
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/GetArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.blog.v1.ArticleCategoryService/GetArticleCategory", runtime.WithHTTPPathPattern("/blog/api/v1/article_categories/{article_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -466,7 +466,7 @@ var (
 
 	pattern_ArticleCategoryService_DeleteArticleCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"blog", "api", "v1", "article_categories", "id"}, ""))
 
-	pattern_ArticleCategoryService_GetArticleCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"blog", "api", "v1", "article_categories", "id"}, ""))
+	pattern_ArticleCategoryService_GetArticleCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"blog", "api", "v1", "article_categories", "article_id"}, ""))
 )
 
 var (

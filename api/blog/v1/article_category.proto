@@ -32,7 +32,7 @@ message UpdateArticleCategoryRequest {
 }
 
 message DeleteArticleCategoryRequest {
-  int64 article_id = 1;
+  int64 id = 1;
 }
 
 message GetArticleCategoryRequest {
@@ -59,7 +59,7 @@ service ArticleCategoryService {
   }
   rpc GetArticleCategory(GetArticleCategoryRequest) returns (ArticleCategory) {
     option (google.api.http) = {
-      get: "/blog/api/v1/article_categories/{id}";
+      get: "/blog/api/v1/article_categories/{article_id}";
     };
   }
 }

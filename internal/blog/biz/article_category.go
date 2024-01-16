@@ -20,7 +20,7 @@ func (ArticleCategory) TableName() string {
 type ArticleCategoryRepo interface {
 	// db
 	ListArticleCategory(ctx context.Context) ([]*ArticleCategory, error)
-	GetArticleCategory(ctx context.Context, id int64) (*ArticleCategory, error)
+	GetArticleCategory(ctx context.Context, articleId int64) (*ArticleCategory, error)
 	CreateArticleCategory(ctx context.Context, articleCategory *ArticleCategory) error
 	UpdateArticleCategory(ctx context.Context, id int64, articleCategory *ArticleCategory) error
 	DeleteArticleCategory(ctx context.Context, id int64) error
@@ -38,8 +38,8 @@ func (a *ArticleCategoryCase) List(ctx context.Context) ([]*ArticleCategory, err
 	return a.repo.ListArticleCategory(ctx)
 }
 
-func (a *ArticleCategoryCase) Get(ctx context.Context, id int64) (*ArticleCategory, error) {
-	return a.repo.GetArticleCategory(ctx, id)
+func (a *ArticleCategoryCase) Get(ctx context.Context, articleId int64) (*ArticleCategory, error) {
+	return a.repo.GetArticleCategory(ctx, articleId)
 }
 
 func (a *ArticleCategoryCase) Create(ctx context.Context, articleCategory *ArticleCategory) error {
